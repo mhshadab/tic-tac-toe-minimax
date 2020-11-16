@@ -29,7 +29,7 @@ class Board:
     def __repr__(self):
         s = "<%d> %s" % (id(self), self.type)
         return(s)
-        
+
     def get_board(self):
         return self._board
 
@@ -58,6 +58,14 @@ class Board:
             return False
 
 class State:
-    board = Board()
-    def __init__(self):
-        board = Board()
+    
+    def __init__(self, board):
+        self.board = board
+
+    def __str__(self):
+        return(self.type)
+
+    def __repr__(self):
+        s = "<%d> %s" % (id(self), self.type)
+        return(s)
+    
