@@ -126,3 +126,57 @@ class State:
 
         return best
 
+    def ai_turn(self , c_choice, h_choice):
+        depth = len(self.board.empty_cells())
+        if depth == 0 or self.game_over():
+            return
+
+        clean()
+        print(f'Computer turn [{c_choice}]')
+        self.render(c_choice, h_choice)
+
+        if depth == 9:
+            x = choice([0, 1, 2])
+            y = choice([0, 1, 2])
+        else:
+            move = self.minimax(self.board.get_board(),depth, COMP)
+            x, y = move[0], move[1]
+
+        self.board.set_move(x, y, COMP)
+        # Paul Lu.  Go full speed.
+        # time.sleep(1)
+
+    def human_turn(self,c_choice, h_choice):
+  
+        depth = len(self.board.empty_cells())
+        if depth == 0 or self.game_over():
+            return
+
+        # Dictionary of valid moves
+        move = -1
+        moves = {
+            1: [0, 0], 2: [0, 1], 3: [0, 2],
+            4: [1, 0], 5: [1, 1], 6: [1, 2],
+            7: [2, 0], 8: [2, 1], 9: [2, 2],
+        }
+
+        clean()
+        print(f'Human turn [{h_choice}]')
+        self.render(c_choice, h_choice)
+
+        while move < 1 or move > 9:
+            try:
+                move = int(input('Use numpad (1..9): '))
+                coord = moves[move]
+                can_move = self.board.set_move(coord[0], coord[1], HUMAN)
+
+                if not can_move:
+                    print('Bad move')
+                    move = -1
+            except (EOFError, KeyboardInterrupt):
+                print('Bye')
+                exit()
+            except (KeyError, ValueError):
+                print('Bad choice')
+ 
+
