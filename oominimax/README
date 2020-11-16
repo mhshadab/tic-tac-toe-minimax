@@ -1,0 +1,21 @@
+Name : Muhtasim Haque Shadab
+ID #: 1617151
+CMPUT 274 Fa20
+Exercise 6: OO Minmax
+
+The program is a modified version of Tic Tac Toe code forked from paullu-ualberta/tic-tac-toe-minimax  using classes and object oriented programing.
+
+Class Board:
+           Created a class board that consists of a list of lists and the methods __init__(self), __str__(self), __repr__(self), get_board(self), empty_cells(self) , valid_move(self,x,y), and set_move(self,x, y, player).
+           The methods are tweaked according to the functionality of the class.
+           Added a getter method titled get_board that returns the list of lists and a setter method titled set_move that sets a value at the specified index in the list of lists.
+
+Class State:
+           The class State takes an instantiation of Board as a parameter and consists of methods __init__(self), __str__(self), __repr__(self), wins(self, player), evaluate(self), game_over(self), minimax(self,state, depth, player),
+           render(self, c_choice, h_choice), ai_turn(self , c_choice, h_choice),human_turn(self,c_choice, h_choice),
+           that operate on the board object in order to run the game.  
+
+The clear() function and main() funtions exist outside of the classes. And main() function is where all the work is done and only main function runs for the code where allatributes are called and bokects are created.
+
+
+
